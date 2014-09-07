@@ -1,6 +1,6 @@
 # TaxCalculation
 
-TODO: Write a gem description
+TaxCauculation is consumption tax calculation in ruby.
 
 ## Installation
 
@@ -18,7 +18,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+calculation = TaxCalculation.new(rate: 0.08, tax_inclusive: true)
+calculation.items << TaxCalculation::Item.new(price: 1080, quantity: 1)
+calculation.items << TaxCalculation::Item.new(price: 540,  quantity: 2)
+calculation.total_price #=> 2160
+calculation.tax         #=> 160
+```
+
+Calculation unit price and tax(I'm looking for a better way...)
+
+```ruby
+calculation = taxCalculation.new(rate: 0.08, tax_inclusive: false)
+calculation.items << TaxCalculation::Item.new(price: 1000, quantity: 1)
+calculation.total_price #=> 1080
+calculation.tax         #=> 80
+```
+
+
 
 ## Contributing
 
